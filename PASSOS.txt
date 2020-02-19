@@ -1,0 +1,66 @@
+SELECIONAR UMA PASTA PARA CRIAR O PROJETO E ABRIR O GIT BASH
+>Clique com o botão direito do mouse dentro da pasta e clique na opção 'Git Bash Here'
+
+CRIE UM PROJETO NPM COM O COMANDO ABAIXO
+>npm init -y
+
+ALTERE AS INFORMAÇÕES NO ARQUIVO package.json INSERINDO O SEGUINTE COMANDO 
+"scripts": {
+    "start": "nodemon start"
+}
+
+INSTALE O EXPRESS ATRAVÉS DO COMANDO ABAIXO
+> npm install express --save
+
+CRIE UM ARQUIVO CHAMADO 'app.js' ATRAVÉS DO COMANDO ABAIXO NO GIT BASH
+>touch app.js
+
+CRIE UMA NOVA PASTA PARA COLOCARMOS NOSSOS CONTROLLERS ATRAVÉS DO COMANDO ABAIXO
+>mkdir controllers 
+
+CRIE UMA NOVA PASTA PARA COLOCARMOS NOSSAS ROTAS ATRAVÉS DO COMANDO ABAIXO
+>mkdir routes
+
+INSTALE O NODEMON PARA FACILITAR NO DESENVOLVIMENTO E ALTERAÇÕES DE CODIGOS ATRAVÉS DO COMANDO ABAIXO
+>npm install nodemon --save
+
+NO ARQUIVO 'app.js' CRIE O SERVIDOR COM O SEGUINTE CÓDIGO 
+const express = require('express');
+const app = express();
+const port = 3000;
+const hostname = 'localhost';
+const backlog = () => console.log(`Servidor rodando na porta ${port}`);
+
+app.listen(port, hostname, backlog);
+
+DENTRO DA PASTA CONTROLLER CRIE UM ARQUIVO COM A EXTENSÃO '.js' REFERENTE AO MODULO A SER DESENVOLVIDO 
+NO EXEMPLO CRIAMOS O ARQUIVO > PetController.js
+
+DENTRO DO ARQUIVO VAMOS CRIAR OS METODOS CONFOREM EXEMPLO ABAIXO
+const PetController = {
+  index: (req, res) => {
+    res.send('Pagina inicial');
+  },
+  add: (req, res) => {
+    res.send('Adicionar pet');
+  },
+  show: (req, res) => {
+    res.send('Mostrar pet');
+  }
+};
+module.exports = PetController;
+
+DENTRO DE NOSSA PASTA 'routes' VAMOS CRIAR UM ARQUIVO QUE IRÁ GERENCIAR AS ROTAS DE NOSSO MODULO
+EM NOSSO EXEMPLO VAMOS CRIAR O ARQUIVO 'pet.js'
+
+VAMOS IMPORTAR 'express', INICIALIZAR O 'app', 'router' E IMPORTARMOS O 'PetController'
+const express = require('express');
+const app = express();
+const router = express.Router();
+const PetController = require('../controllers/PetController');
+
+router.get('/', PetController.index);
+router.get('/buscar', PetController.show);
+router.get('/adicionar', PetController.add);
+
+module.exports = router;

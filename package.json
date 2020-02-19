@@ -1,0 +1,16 @@
+{
+  "name": "petshop_express",
+  "version": "1.0.0",
+  "description": "Projeto petshop em express",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon start",
+    "test": "nodemon start"
+  },
+  "author": "Alessandro L. Menezes",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  }
+}
