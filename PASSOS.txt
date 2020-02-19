@@ -64,3 +64,11 @@ router.get('/buscar', PetController.show);
 router.get('/adicionar', PetController.add);
 
 module.exports = router;
+
+CRIAR PASTA DE MODELS NA PASTA RAIZ ATRAVÉS DO COMANDO ABAIXO 
+mkdir models
+
+DENTRO DA PASTA MODELS CRIAR O ARQUIVO 'Pet.js' REFERENTE A MODEL DE NOSSO MODULO 
+touch Pet.js
+
+IMPORTAR O MODULO 'Pet' DO MODEL DENTRO DO ARQUIVO CONTROLLER

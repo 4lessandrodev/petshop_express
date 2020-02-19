@@ -4,6 +4,6 @@ const router = express.Router();
 const PetController = require('../controllers/PetController');
 
 router.get('/', PetController.index);
-router.get('/buscar', PetController.show);
+router.get('/add/:nome', PetController.add);
 
 module.exports = router;
